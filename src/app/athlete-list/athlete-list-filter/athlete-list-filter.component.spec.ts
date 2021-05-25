@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ServerSideComponent } from './server-side.component';
+import { AthleteListFilterComponent } from './athlete-list-filter.component';
 
-describe('ServerSideComponent', () => {
-  let component: ServerSideComponent;
-  let fixture: ComponentFixture<ServerSideComponent>;
+describe('AthleteListFilterComponent', () => {
+  let component: AthleteListFilterComponent;
+  let fixture: ComponentFixture<AthleteListFilterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ServerSideComponent ]
+      declarations: [ AthleteListFilterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ServerSideComponent);
+    fixture = TestBed.createComponent(AthleteListFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

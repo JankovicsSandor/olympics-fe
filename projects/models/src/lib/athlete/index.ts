@@ -1,2 +1,2 @@
-export { Athlete } from './athlete.class';
+export { Athlete } from './athlete.interface';
 export { Gender } from "./gender.enum"

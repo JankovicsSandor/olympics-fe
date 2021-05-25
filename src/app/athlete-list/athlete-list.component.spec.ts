@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClientSideComponent } from './client-side.component';
+import { AthleteListComponent } from './athlete-list.component';
 
-describe('ClientSideComponent', () => {
-  let component: ClientSideComponent;
-  let fixture: ComponentFixture<ClientSideComponent>;
+describe('AthleteListComponent', () => {
+  let component: AthleteListComponent;
+  let fixture: ComponentFixture<AthleteListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClientSideComponent ]
+      declarations: [ AthleteListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClientSideComponent);
+    fixture = TestBed.createComponent(AthleteListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

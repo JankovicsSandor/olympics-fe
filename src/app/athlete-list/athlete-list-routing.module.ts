@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ServerSideComponent } from './server-side.component';
+import { AthleteListComponent } from './athlete-list.component';
 
-const routes: Routes = [{ path: '', component: ServerSideComponent }];
+const routes: Routes = [{ path: '', component: AthleteListComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ServerSideRoutingModule { }
+export class AthleteListRoutingModule { }
