@@ -12,10 +12,12 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "paths": {
+      "@models": ["projects/models/src/public-api"],
+      "@store": ["projects/store/src/public-api"],
+      "@data-provider": ["projects/data-provider/src/public-api"]
+    },
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  athleteAPI: "http:localhost:5000"
 };
