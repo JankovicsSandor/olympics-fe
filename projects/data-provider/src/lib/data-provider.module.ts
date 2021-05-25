@@ -4,10 +4,7 @@ import { AthleteDataProviderService } from './athlete/athlete-data-provider.serv
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-  ],
   providers: [AthleteDataProviderService],
-  exports: [AthleteDataProviderService]
+  exports: []
 })
 export class DataProviderModule { }

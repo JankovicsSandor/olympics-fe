@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
+@Injectable()
 export class BaseHttpClientService {
   private apiUrl: string;
   constructor(protected url: string, protected http: HttpClient) {
