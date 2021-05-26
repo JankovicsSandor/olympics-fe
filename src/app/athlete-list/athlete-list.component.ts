@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Athlete, Gender, Sport } from '@models';
+import { AthleteService } from '@store';
 
 @Component({
   selector: 'app-athlete-list',

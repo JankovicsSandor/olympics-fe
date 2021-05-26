@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataProviderModule } from '@data-provider';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { StoreModule } from '@store';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     BrowserModule,
     AppRoutingModule,
     DataProviderModule,
-    MatToolbarModule
+    MatToolbarModule,
+    StoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

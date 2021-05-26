@@ -8,32 +8,35 @@
       <th>Height</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-athlete let-rowIndex="rowIndex" let-expanded="expanded">
+  <ng-template pTemplate="body" let-athletNation let-rowIndex="rowIndex" let-expanded="expanded">
     <tr>
       <td colspan="5">
-        <button type="button" pButton pRipple [pRowToggler]="athlete"
-          class="p-button-text p-button-rounded p-button-plain p-mr-2"
-          [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-        <span class="p-text-bold p-ml-2">{{athlete.name}}</span>
+        <div class="d-flex align-items-center">
+          <button type="button" pButton pRipple [pRowToggler]="athletNation"
+            class="p-button-text p-button-rounded p-button-plain p-mr-2"
+            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+          <img [src]="'https://www.countryflags.io/'+athletNation.nationality+'/flat/64.png'" class="smallFlag">
+          <span class="p-text-bold">{{athletNation.nationality}}</span>
+        </div>
       </td>
     </tr>
   </ng-template>
-  <ng-template pTemplate="rowexpansion" let-athlete>
-    <tr>
-      <td>
+  <ng-template pTemplate="rowexpansion" let-nation>
+    <tr *ngFor="let athlete of nation.athletes">
+      <td class="text-center">
         {{athlete.name}}
       </td>
-      <td>
-        {{athlete.dateOfBirth}}
+      <td class="text-center">
+        {{athlete.dateOfBirth|date:'YYYY.MM.dd'}}
       </td>
-      <td>
+      <td class="text-center">
         {{athlete.dateOfBirth|age}}
       </td>
-      <td>
-        {{customer.weight}} kg
+      <td class="text-center">
+        {{athlete.weight}} kg
       </td>
-      <td>
-        {{customer.height}} cm
+      <td class="text-center">
+        {{athlete.height}} cm
       </td>
     </tr>
   </ng-template>

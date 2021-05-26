@@ -10,4 +10,8 @@ export class AthleteService {
   updateAthlete(modifiedAthlete: Athlete) {
     this.store.update(modifiedAthlete.id, modifiedAthlete);
   }
+
+  addNewAthlete(newAthlete: Athlete) {
+    this.store.add(newAthlete);
+  }
 }

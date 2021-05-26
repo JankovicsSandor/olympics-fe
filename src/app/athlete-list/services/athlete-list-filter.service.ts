@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Athlete, AthleteFilter, AthleteGroup } from '@models';
 import { AthleteQuery } from '@store';
 import { BehaviorSubject, combineLatest, ReplaySubject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AthleteListFilterService {
@@ -11,7 +11,7 @@ export class AthleteListFilterService {
     combineLatest([this.athleteStoreQuery.getAllAthlete(), this.athleteFilter]).pipe(map(([allAthleteList, filterObject]) => {
       let resultList: AthleteGroup[] = [];
 
-      if (filterObject != null) {
+      if (filterObject == null) {
         for (const oneAthlete of allAthleteList) {
           this.AddAthleteToResultList(resultList, oneAthlete);
         }
@@ -35,10 +35,10 @@ export class AthleteListFilterService {
         }
       }
       return resultList;
-    })).subscribe(this.resultAthleteList);
+    })).subscribe(this.filteredAtheteList);
   }
 
-  private resultAthleteList: ReplaySubject<AthleteGroup[]> = new ReplaySubject(1);
+  private filteredAtheteList: ReplaySubject<AthleteGroup[]> = new ReplaySubject(1);
   private athleteFilter: BehaviorSubject<AthleteFilter> = new BehaviorSubject(null);
 
   private AddAthleteToResultList(resultList: AthleteGroup[], oneAthlete: Athlete) {
@@ -46,8 +46,12 @@ export class AthleteListFilterService {
     if (athleteNationality) {
       athleteNationality.athletes.push(oneAthlete);
     } else {
-      resultList.push(<AthleteGroup>{ nationality: oneAthlete.nationalityCode });
+      resultList.push(<AthleteGroup>{ nationality: oneAthlete.nationalityCode, athletes: [oneAthlete] });
     }
+  }
+
+  getFilteredAthletList() {
+    return this.filteredAtheteList.asObservable();
   }
 
   addMinWeightFilter(minWeight: number) {

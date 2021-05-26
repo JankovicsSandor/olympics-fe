@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
-import { StoreComponent } from './store.component';
-
+import { AthleteQuery } from './athlete/athlete.query';
+import { AthleteService } from './athlete/athlete.service';
+import { AthleteStore } from './athlete/athlete.store';
 
 
 @NgModule({
-  declarations: [StoreComponent],
-  imports: [
-  ],
-  exports: [StoreComponent]
+  providers: [AthleteQuery, AthleteService, AthleteStore]
 })
 export class StoreModule { }
