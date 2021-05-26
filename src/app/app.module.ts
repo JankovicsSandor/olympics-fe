@@ -4,17 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataProviderModule } from '@data-provider';
-import { AgePipe } from './pipes/age.pipe';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AgePipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DataProviderModule
+    DataProviderModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
