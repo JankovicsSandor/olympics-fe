@@ -4,7 +4,7 @@ import { Gender } from "./gender.enum";
 export interface Athlete {
   id: number;
   name: string;
-  dateOfBirth: Date;
+  dateOfBirth: string;
   nationalityCode: string;
   gender: Gender
   sport: Sport

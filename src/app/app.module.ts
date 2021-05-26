@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { DataProviderModule } from '@data-provider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { StoreModule } from '@store';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +16,8 @@ import { StoreModule } from '@store';
     AppRoutingModule,
     DataProviderModule,
     MatToolbarModule,
-    StoreModule
+    StoreModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

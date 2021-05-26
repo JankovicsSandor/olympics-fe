@@ -1,20 +1,23 @@
-<p-table [value]="athleteGroupList" dataKey="athlete.name">
+<p-table [value]="athleteGroupList" dataKey="athlete.name" [scrollable]="true" scrollHeight="200px">
   <ng-template pTemplate="header">
     <tr>
-      <th>Name</th>
-      <th>Date of birth</th>
-      <th>Age</th>
-      <th>Weight</th>
-      <th>Height</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Date of birth</th>
+      <th class="text-center">Age</th>
+      <th class="text-center">Weight</th>
+      <th class="text-center">Height</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-athletNation let-rowIndex="rowIndex" let-expanded="expanded">
-    <tr>
+    <tr [pRowToggler]="athletNation" class="hoverAction">
       <td colspan="5">
         <div class="d-flex align-items-center">
-          <button type="button" pButton pRipple [pRowToggler]="athletNation"
-            class="p-button-text p-button-rounded p-button-plain p-mr-2"
-            [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+          <button mat-icon-button *ngIf="!expanded">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="expanded">
+            <mat-icon>expand_more</mat-icon>
+          </button>
           <img [src]="'https://www.countryflags.io/'+athletNation.nationality+'/flat/64.png'" class="smallFlag">
           <span class="p-text-bold">{{athletNation.nationality}}</span>
         </div>

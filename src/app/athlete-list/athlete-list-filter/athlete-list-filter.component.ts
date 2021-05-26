@@ -1,4 +1,6 @@
+import { AthleteListFilterService } from './../services/athlete-list-filter.service';
 import { Component, OnInit } from '@angular/core';
+import { AthleteFilter } from '@models';
 
 @Component({
   selector: 'athlete-list-filter',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AthleteListFilterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private filterService: AthleteListFilterService) { }
 
   ngOnInit(): void {
+  }
+
+  applyFilter(filterObject: AthleteFilter) {
+    this.filterService.addCombinedFilter(filterObject);
   }
 
 }

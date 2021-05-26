@@ -18,7 +18,7 @@ export class AthleteListFilterService {
       } else {
         for (const oneAthlete of allAthleteList) {
           if (filterObject.minDateOfBirth) {
-            if (oneAthlete.dateOfBirth.getTime() >= filterObject.minDateOfBirth.getTime()) {
+            if (new Date(oneAthlete.dateOfBirth).getTime() >= filterObject.minDateOfBirth.getTime()) {
               this.AddAthleteToResultList(resultList, oneAthlete);
             }
           }
@@ -70,5 +70,9 @@ export class AthleteListFilterService {
     let actualValue = this.athleteFilter.value;
     actualValue.minDateOfBirth = minBirthdate;
     this.athleteFilter.next(actualValue);
+  }
+
+  addCombinedFilter(filter: AthleteFilter) {
+    this.athleteFilter.next(filter);
   }
 }
