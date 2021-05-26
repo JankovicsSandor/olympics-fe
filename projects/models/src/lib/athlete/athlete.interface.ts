@@ -8,4 +8,6 @@ export interface Athlete {
   nationalityCode: string;
   gender: Gender
   sport: Sport
+  weight: number;
+  height: number
 }

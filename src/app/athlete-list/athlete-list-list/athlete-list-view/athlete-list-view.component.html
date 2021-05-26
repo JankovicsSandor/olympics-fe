@@ -1,0 +1,40 @@
+<p-table [value]="athleteGroupList" dataKey="athlete.name">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Date of birth</th>
+      <th>Age</th>
+      <th>Weight</th>
+      <th>Height</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-athlete let-rowIndex="rowIndex" let-expanded="expanded">
+    <tr>
+      <td colspan="5">
+        <button type="button" pButton pRipple [pRowToggler]="athlete"
+          class="p-button-text p-button-rounded p-button-plain p-mr-2"
+          [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+        <span class="p-text-bold p-ml-2">{{athlete.name}}</span>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="rowexpansion" let-athlete>
+    <tr>
+      <td>
+        {{athlete.name}}
+      </td>
+      <td>
+        {{athlete.dateOfBirth}}
+      </td>
+      <td>
+        {{athlete.dateOfBirth|age}}
+      </td>
+      <td>
+        {{customer.weight}} kg
+      </td>
+      <td>
+        {{customer.height}} cm
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
