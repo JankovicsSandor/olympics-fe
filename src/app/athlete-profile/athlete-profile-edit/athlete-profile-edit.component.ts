@@ -1,3 +1,4 @@
+import { ReplaySubject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AthleteProfileEditService } from '../services/athlete-profile-edit.service';
@@ -9,6 +10,7 @@ import { AthleteProfileEditService } from '../services/athlete-profile-edit.serv
 })
 export class AthleteProfileEditComponent implements OnInit {
   athleteProfile: FormGroup;
+  profileEditable: ReplaySubject<boolean> = new ReplaySubject();
 
   constructor(public profileEditService: AthleteProfileEditService, private fb: FormBuilder) {
     this.athleteProfile = this.fb.group({
@@ -23,6 +25,7 @@ export class AthleteProfileEditComponent implements OnInit {
     })
 
     this.athleteProfile.valueChanges.subscribe((val) => console.log(val));
+    this.profileEditService.getProfileEditable$().subscribe(this.profileEditable);
   }
 
   ngOnInit(): void {

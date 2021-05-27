@@ -7,6 +7,7 @@ import { DataProviderModule } from '@data-provider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { StoreModule } from '@store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DataProviderModule,
     MatToolbarModule,
     StoreModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 <ng-container *ngIf="editEnabled else disabledView">
   <mat-form-field appearance="outline">
-    <mat-select [(ngModel)]="inputValue">
+    <mat-select [formControl]="inputValueControl">
       <mat-option *ngFor="let option of dropDownValues" [value]="option.id">
         {{option.text}}
       </mat-option>
@@ -8,5 +8,5 @@
   </mat-form-field>
 </ng-container>
 <ng-template #disabledView>
-  {{inputValue}}
+  {{inputValueControl.value}}
 </ng-template>

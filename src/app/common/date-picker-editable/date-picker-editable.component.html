@@ -1,7 +1,7 @@
 <ng-container *ngIf="editEnabled else disabledView">
   <mat-form-field appearance="outline">
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker" [(ngModel)]="inputValue"></mat-datepicker-toggle>
+    <input matInput [matDatepicker]="picker" [formControl]="inputValueControl">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 </ng-container>

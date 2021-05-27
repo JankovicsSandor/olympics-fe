@@ -16,17 +16,17 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 export class InputEditableFieldComponent implements OnInit, ControlValueAccessor {
 
   inputValueControl = new FormControl();
-  inputValue: string = "";
-  @Input() editEnabled: boolean = false;
+  @Input() editEnabled: boolean;
   onChange = (value) => { };
   onTouched = () => { };
   constructor() {
     this.inputValueControl.valueChanges.subscribe((val) => {
-      this.writeValue(val);
+      this.onChange(val);
     });
   }
+
   writeValue(obj: any): void {
-    this.inputValue = obj
+    this.inputValueControl.patchValue(obj);
   }
   registerOnChange(onChange: any): void {
     this.onChange = onChange;

@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="col-8 m-auto">
     <div class=" text-end mb-2">
-      <button mat-raised-button color="primary" *ngIf="(profileEditService.getProfileEditable$()|async) ==true"
+      <button mat-raised-button color="primary" *ngIf="(profileEditable|async) ==true"
         (click)="profileEditService.setProfileEditable(false)">Cancel</button>
-      <button mat-raised-button color="primary" *ngIf="(profileEditService.getProfileEditable$()|async) ==true"
+      <button mat-raised-button color="primary" *ngIf="(profileEditable|async) ==true"
         (click)="profileEditService.setProfileEditable(false)">Save</button>
-      <button mat-raised-button color="primary" *ngIf="(profileEditService.getProfileEditable$()|async) ==false"
+      <button mat-raised-button color="primary" *ngIf="(profileEditable|async) ==false"
         (click)="profileEditService.setProfileEditable(true)">Edit</button>
     </div>
     <div>
@@ -17,62 +17,69 @@
           </div>
           <div class="col-8">
             <form [formGroup]="athleteProfile">
-              <div class="col-6">
-                Name:
+              <div class="row mb-4 align-items-center">
+                <div class="col-6">
+                  Name:
+                </div>
+                <div class="col-6">
+                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="name">
+                  </input-editable-field>
+                </div>
               </div>
-              <div class="col-6">
-                <input-editable-field [contentEditable]="profileEditService.getProfileEditable$()|async"
-                  formControlName="name">
-                </input-editable-field>
+              <div class="row">
+                <div class="col-6">
+                  Date of birth:
+                </div>
+                <div class="col-6">
+                  <date-picker-editable [editEnabled]="profileEditable|async" formControlName="dateOfBirth">
+                  </date-picker-editable>
+                </div>
               </div>
-              <div class="col-6">
-                Date of birth:
+              <div class="row">
+                <div class="col-6">
+                  Age:
+                </div>
+                <div class="col-6">
+                  TODO write age heres
+                </div>
               </div>
-              <div class="col-6">
-                <!-- <date-picker-editable [contentEditable]="profileEditService.getProfileEditable$()|async"
-                  formControlName="dateOfBirth">
-                </date-picker-editable> -->
+              <div class="row">
+                <div class="col-6">
+                  Nation:
+                </div>
+                <div class="col-6">
+                  <dropdown-edit-field [editEnabled]="profileEditable|async" formControlName="nation">
+                  </dropdown-edit-field>
+                </div>
               </div>
-              <div class="col-6">
-                Age:
+              <div class="row">
+                <div class="col-6">
+                  Height:
+                </div>
+                <div class="col-6">
+                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="height">
+                  </input-editable-field>
+                </div>
               </div>
-              <div class="col-6">
-                TODO write age heres
+              <div class="row">
+                <div class="col-6">
+                  Weight:
+                </div>
+                <div class="col-6">
+                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="weight">
+                  </input-editable-field>
+                </div>
               </div>
-              <div class="col-6">
-                Nation:
-              </div>
-              <div class="col-6">
-                <!-- <dropdown-edit-field [contentEditable]="profileEditService.getProfileEditable$()|async"
-                  formControlName="nation">
-                </dropdown-edit-field> -->
-              </div>
-              <div class="col-6">
-                Height:
-              </div>
-              <div class="col-6">
-                <input-editable-field [contentEditable]="profileEditService.getProfileEditable$()|async"
-                  formControlName="height">
-                </input-editable-field>
-              </div>
-              <div class="col-6">
-                Weight:
-              </div>
-              <div class="col-6">
-                <input-editable-field [contentEditable]="profileEditService.getProfileEditable$()|async"
-                  formControlName="weight">
-                </input-editable-field>
-              </div>
-              <div class="col-6">
-                Sport:
-              </div>
-              <div class="col-6">
-                <input-editable-field [contentEditable]="profileEditService.getProfileEditable$()|async"
-                  formControlName="sport">
-                </input-editable-field>
+              <div class="row">
+                <div class="col-6">
+                  Sport:
+                </div>
+                <div class="col-6">
+                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="sport">
+                  </input-editable-field>
+                </div>
               </div>
             </form>
-
           </div>
         </div>
       </mat-card>

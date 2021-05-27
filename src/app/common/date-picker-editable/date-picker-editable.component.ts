@@ -1,4 +1,4 @@
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -15,13 +15,19 @@ import { Component, forwardRef, Input, OnInit } from '@angular/core';
 })
 export class DatePickerEditableComponent implements ControlValueAccessor {
 
-  inputValue: string = "";
-  @Input() editEnabled: boolean = false;
+  inputValueControl = new FormControl();
+  @Input() editEnabled: boolean;
+
   onChange = (value) => { };
   onTouched = () => { };
-  constructor() { }
+  constructor() {
+    this.inputValueControl.valueChanges.subscribe((val) => {
+      this.onChange(val);
+    });
+  }
+
   writeValue(obj: any): void {
-    this.inputValue = obj
+    this.inputValueControl.patchValue(obj);
   }
   registerOnChange(onChange: any): void {
     this.onChange = onChange;
@@ -31,6 +37,9 @@ export class DatePickerEditableComponent implements ControlValueAccessor {
   }
   setDisabledState?(isDisabled: boolean): void {
     this.editEnabled = isDisabled;
+  }
+
+  ngOnInit(): void {
   }
 
 
