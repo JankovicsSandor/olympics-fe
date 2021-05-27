@@ -1,9 +1,10 @@
+import { AthleteProfileComponent } from './athlete-profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AthleteEditComponent } from './athlete-edit.component';
+
 
 const routes: Routes = [
-  { path: ':id', component: AthleteEditComponent }
+  { path: ':id', component: AthleteProfileComponent }
 ];
 
 @NgModule({

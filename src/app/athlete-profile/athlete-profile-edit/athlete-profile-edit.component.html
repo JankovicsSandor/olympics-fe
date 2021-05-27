@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="col-8 m-auto">
+    <div class=" text-end mb-2">
+      <button mat-raised-button color="primary" *ngIf="(profileEditService.getProfileEditable$()|async) ==true"
+        (click)="profileEditService.setProfileEditable(false)">Cancel</button>
+      <button mat-raised-button color="primary" *ngIf="(profileEditService.getProfileEditable$()|async) ==true"
+        (click)="profileEditService.setProfileEditable(false)">Save</button>
+      <button mat-raised-button color="primary"
+        *ngIf="(profileEditService.getProfileEditable$()|async) ==false">Edit</button>
+    </div>
+    <div>
+      <mat-card class="m-auto">
+        <h2>Profile information</h2>
+        <div class="row">
+          <div class="col-4">
+            <img src="https://img.icons8.com/cotton/2x/gender-neutral-user--v2.png" class="profilePicture">
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
