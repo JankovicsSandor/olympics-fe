@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AthleteProfileEditService } from '../services/athlete-profile-edit.service';
 
 @Component({
@@ -7,8 +8,22 @@ import { AthleteProfileEditService } from '../services/athlete-profile-edit.serv
   styleUrls: ['./athlete-profile-edit.component.scss']
 })
 export class AthleteProfileEditComponent implements OnInit {
+  athleteProfile: FormGroup;
 
-  constructor(public profileEditService: AthleteProfileEditService) { }
+  constructor(public profileEditService: AthleteProfileEditService, private fb: FormBuilder) {
+    this.athleteProfile = this.fb.group({
+      name: ["items"],
+      dateOfBirth: [],
+      age: [],
+      nation: [],
+      gender: [],
+      height: [],
+      weight: [],
+      sport: [],
+    })
+
+    this.athleteProfile.valueChanges.subscribe((val) => console.log(val));
+  }
 
   ngOnInit(): void {
   }

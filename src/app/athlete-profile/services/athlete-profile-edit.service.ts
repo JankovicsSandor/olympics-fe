@@ -9,6 +9,7 @@ export class AthleteProfileEditService {
   private profileEditable: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   getProfileEditable$() {
+    console.log("aa");
     return this.profileEditable.asObservable();
   }
 

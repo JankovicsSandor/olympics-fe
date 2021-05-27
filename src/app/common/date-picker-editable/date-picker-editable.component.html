@@ -1,0 +1,10 @@
+<ng-container *ngIf="editEnabled else disabledView">
+  <mat-form-field appearance="outline">
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker" [(ngModel)]="inputValue"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</ng-container>
+<ng-template #disabledView>
+  {{inputValue|date}}
+</ng-template>

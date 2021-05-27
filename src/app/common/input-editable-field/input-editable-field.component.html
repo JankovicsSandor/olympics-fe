@@ -1,0 +1,8 @@
+<ng-container *ngIf="editEnabled else disabledView">
+  <mat-form-field appearance="outline">
+    <input matInput [formControl]="inputValueControl">
+  </mat-form-field>
+</ng-container>
+<ng-template #disabledView>
+  {{inputValue}}
+</ng-template>

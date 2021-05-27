@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AthleteProfileDataComponent } from './athlete-profile-data.component';
+import { InputEditableFieldComponent } from './input-editable-field.component';
 
-describe('AthleteProfileDataComponent', () => {
-  let component: AthleteProfileDataComponent;
-  let fixture: ComponentFixture<AthleteProfileDataComponent>;
+describe('InputEditableFieldComponent', () => {
+  let component: InputEditableFieldComponent;
+  let fixture: ComponentFixture<InputEditableFieldComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AthleteProfileDataComponent ]
+      declarations: [ InputEditableFieldComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AthleteProfileDataComponent);
+    fixture = TestBed.createComponent(InputEditableFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
