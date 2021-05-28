@@ -1,9 +1,9 @@
 export enum Sport {
-  Archery,
-  Athletics,
-  Badminton,
-  Basketball,
-  Box,
-  Canoe,
-  Judo
+  Archery = "Archery",
+  Athletics = "Athletics",
+  Badminton = "Badminton",
+  Basketball = "Basketball",
+  Box = "Box",
+  Canoe = "Canoe",
+  Judo = "Judo"
 }

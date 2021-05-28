@@ -19,8 +19,9 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonPipesModule } from '../pipes/common-pipes.module';
 @NgModule({
-  declarations: [AthleteListComponent, AthleteListFilterComponent, AthleteListListComponent, AthleteListViewComponent, AgePipe, AthleteListFilterViewComponent],
+  declarations: [AthleteListComponent, AthleteListFilterComponent, AthleteListListComponent, AthleteListViewComponent, AthleteListFilterViewComponent],
   imports: [
     CommonModule,
     TableModule,
@@ -35,8 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-
+    CommonPipesModule
   ],
-  providers: [AgePipe, AthleteListFilterService]
+  providers: [AthleteListFilterService]
 })
 export class AthleteListModule { }

@@ -15,6 +15,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class InputEditableFieldComponent implements OnInit, ControlValueAccessor {
 
+  @Input() inputType: string = "text"
   inputValueControl = new FormControl();
   @Input() editEnabled: boolean;
   onChange = (value) => { };

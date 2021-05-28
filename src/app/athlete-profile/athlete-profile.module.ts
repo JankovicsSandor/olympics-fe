@@ -1,3 +1,4 @@
+import { AgePipe } from './../pipes/age.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonComponentModule } from './../common/common-component.module';
 import { MatCardModule } from '@angular/material/card';
@@ -9,6 +10,7 @@ import { AthleteProfileComponent } from './athlete-profile.component';
 import { MatButtonModule } from '@angular/material/button';
 import { AthleteProfileEditService } from './services/athlete-profile-edit.service';
 import { AthleteProfileEditComponent } from './athlete-profile-edit/athlete-profile-edit.component';
+import { CommonPipesModule } from '../pipes/common-pipes.module';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { AthleteProfileEditComponent } from './athlete-profile-edit/athlete-prof
     MatCardModule,
     CommonComponentModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonPipesModule
   ],
   providers: [AthleteProfileEditService]
 })

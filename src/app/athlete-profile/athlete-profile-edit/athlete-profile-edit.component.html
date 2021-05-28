@@ -2,11 +2,11 @@
   <div class="col-8 m-auto">
     <div class=" text-end mb-2">
       <button mat-raised-button color="primary" *ngIf="(profileEditable|async) ==true"
-        (click)="profileEditService.setProfileEditable(false)">Cancel</button>
+        (click)="cancelEdit()">Cancel</button>
       <button mat-raised-button color="primary" *ngIf="(profileEditable|async) ==true"
-        (click)="profileEditService.setProfileEditable(false)">Save</button>
+        (click)="saveAthlete()">Save</button>
       <button mat-raised-button color="primary" *ngIf="(profileEditable|async) ==false"
-        (click)="profileEditService.setProfileEditable(true)">Edit</button>
+        (click)="setContentEditable()">Edit</button>
     </div>
     <div>
       <mat-card class="m-auto">
@@ -16,7 +16,7 @@
             <img src="https://img.icons8.com/cotton/2x/gender-neutral-user--v2.png" class="profilePicture">
           </div>
           <div class="col-8">
-            <form [formGroup]="athleteProfile">
+            <form [formGroup]="activeForm">
               <div class="row mb-4 align-items-center">
                 <div class="col-6">
                   Name:
@@ -26,7 +26,7 @@
                   </input-editable-field>
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-4 align-items-center">
                 <div class="col-6">
                   Date of birth:
                 </div>
@@ -35,48 +35,51 @@
                   </date-picker-editable>
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-4 align-items-center">
                 <div class="col-6">
                   Age:
                 </div>
                 <div class="col-6">
-                  TODO write age heres
+                  {{activeForm.value.dateOfBirth|age}}
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-4 align-items-center">
                 <div class="col-6">
                   Nation:
                 </div>
                 <div class="col-6">
-                  <dropdown-edit-field [editEnabled]="profileEditable|async" formControlName="nation">
-                  </dropdown-edit-field>
+                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="nation">
+                  </input-editable-field>
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-4 align-items-center">
                 <div class="col-6">
                   Height:
                 </div>
                 <div class="col-6">
-                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="height">
+                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="height"
+                    [inputType]="'number'">
                   </input-editable-field>
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-4 align-items-center">
                 <div class="col-6">
                   Weight:
                 </div>
                 <div class="col-6">
-                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="weight">
+                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="weight"
+                    [inputType]="'number'">
                   </input-editable-field>
                 </div>
               </div>
-              <div class="row">
+              <div class="row mb-4 align-items-center">
                 <div class="col-6">
                   Sport:
                 </div>
                 <div class="col-6">
-                  <input-editable-field [editEnabled]="profileEditable|async" formControlName="sport">
-                  </input-editable-field>
+                  <dropdown-edit-field [editEnabled]="profileEditable|async" formControlName="sport"
+                    [dropDownValues]="availableSportList">
+                  </dropdown-edit-field>
                 </div>
               </div>
             </form>

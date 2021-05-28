@@ -6,5 +6,7 @@
   </mat-form-field>
 </ng-container>
 <ng-template #disabledView>
-  {{inputValue|date}}
+  <div class="input-content-height d-table-cell">
+    <span>{{inputValueControl.value}}</span>
+  </div>
 </ng-template>
