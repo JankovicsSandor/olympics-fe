@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AthleteDataProviderService } from './athlete/athlete-data-provider.service';
 
@@ -5,6 +6,7 @@ import { AthleteDataProviderService } from './athlete/athlete-data-provider.serv
 
 @NgModule({
   providers: [AthleteDataProviderService],
+  imports: [HttpClientModule],
   exports: []
 })
 export class DataProviderModule { }

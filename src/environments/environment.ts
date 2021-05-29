@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  athleteAPI: "http:localhost:5000"
+  athleteAPI: "https:localhost:44300/"
 };
 
 /*

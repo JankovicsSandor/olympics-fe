@@ -42,11 +42,11 @@ export class AthleteListFilterService {
   private athleteFilter: BehaviorSubject<AthleteFilter> = new BehaviorSubject(null);
 
   private AddAthleteToResultList(resultList: AthleteGroup[], oneAthlete: Athlete) {
-    let athleteNationality = resultList.find(nation => nation.nationality == oneAthlete.nationalityCode);
+    let athleteNationality = resultList.find(nation => nation.nationality == oneAthlete.nation);
     if (athleteNationality) {
       athleteNationality.athletes.push(oneAthlete);
     } else {
-      resultList.push(<AthleteGroup>{ nationality: oneAthlete.nationalityCode, athletes: [oneAthlete] });
+      resultList.push(<AthleteGroup>{ nationality: oneAthlete.nation, athletes: [oneAthlete] });
     }
   }
 

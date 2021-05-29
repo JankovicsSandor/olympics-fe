@@ -23,4 +23,8 @@ export class AthleteDataProviderService extends BaseHttpClientService {
   updateOneAthlete(newAthlete: Athlete) {
     return this.put<Athlete>(`athlete/${newAthlete.id}`, newAthlete);
   }
+
+  addAthlete(newAthlete: Athlete) {
+    this.post<Athlete>(`athlete`, newAthlete).subscribe((val) => this.athleteStore.addNewAthlete(val));
+  }
 }

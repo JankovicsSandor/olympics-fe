@@ -5,7 +5,7 @@ export interface Athlete {
   id: number;
   name: string;
   dateOfBirth: string;
-  nationalityCode: string;
+  nation: string;
   gender: Gender
   sport: Sport
   weight: number;

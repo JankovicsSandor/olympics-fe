@@ -52,7 +52,7 @@ export class AthleteProfileEditComponent implements OnInit, OnDestroy {
       this.activeForm.patchValue({
         name: val.name,
         dateOfBirth: val.dateOfBirth,
-        nation: val.nationalityCode,
+        nation: val.nation,
         gender: val.gender,
         height: val.height,
         weight: val.weight,
