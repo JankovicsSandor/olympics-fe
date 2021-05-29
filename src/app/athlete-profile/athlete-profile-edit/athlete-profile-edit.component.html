@@ -54,6 +54,16 @@
               </div>
               <div class="row mb-4 align-items-center">
                 <div class="col-6">
+                  Gender:
+                </div>
+                <div class="col-6">
+                  <dropdown-edit-field [editEnabled]="profileEditable|async" formControlName="gender"
+                    [dropDownValues]="availableGenderList">
+                  </dropdown-edit-field>
+                </div>
+              </div>
+              <div class="row mb-4 align-items-center">
+                <div class="col-6">
                   Height:
                 </div>
                 <div class="col-6">

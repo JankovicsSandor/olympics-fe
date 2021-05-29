@@ -14,4 +14,8 @@ export class AthleteService {
   addNewAthlete(newAthlete: Athlete) {
     this.store.add(newAthlete);
   }
+
+  refreshAthleteList(athleteList: Athlete[]) {
+    this.store.upsertMany(athleteList);
+  }
 }

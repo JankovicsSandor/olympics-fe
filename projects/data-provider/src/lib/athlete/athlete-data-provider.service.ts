@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BaseHttpClientService } from '../base/base-http-client.class';
 import { Athlete } from '@models';
+import { AthleteService } from '@store';
 
 @Injectable()
 export class AthleteDataProviderService extends BaseHttpClientService {
 
-  constructor(protected http: HttpClient) {
+  constructor(protected http: HttpClient, private athleteStore: AthleteService) {
     super(environment.athleteAPI, http)
   }
 
@@ -16,6 +17,10 @@ export class AthleteDataProviderService extends BaseHttpClientService {
   }
 
   refreshAthleteList() {
-    return this.get<Athlete[]>("athlete/list");
+    this.get<Athlete[]>("athlete/list").subscribe((value) => this.athleteStore.refreshAthleteList(value));
+  }
+
+  updateOneAthlete(newAthlete: Athlete) {
+    return this.put<Athlete>(`athlete/${newAthlete.id}`, newAthlete);
   }
 }
