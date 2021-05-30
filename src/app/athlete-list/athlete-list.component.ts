@@ -1,8 +1,8 @@
 import { AthleteDataProviderService } from '@data-provider';
 import { Component, OnInit } from '@angular/core';
 import { Athlete, Gender, Sport } from '@models';
-import { AthleteService } from '@store';
-import { uniqueNamesGenerator, Config, countries } from 'unique-names-generator';
+import { uniqueNamesGenerator, Config, names } from 'unique-names-generator';
+import { CountryService } from '../services/country.service';
 @Component({
   selector: 'app-athlete-list',
   templateUrl: './athlete-list.component.html',
@@ -11,17 +11,18 @@ import { uniqueNamesGenerator, Config, countries } from 'unique-names-generator'
 export class AthleteListComponent implements OnInit {
 
   config: Config = {
-    dictionaries: [countries]
+    dictionaries: [names]
   }
-  CountryCodes: any[] = ['ad', 'ae', 'af', 'ag', 'ai', 'an', 'ar', 'eg', 'eu', 'hu']
-  constructor(private athleteDataprovider: AthleteDataProviderService) { }
+
+  constructor(private athleteDataprovider: AthleteDataProviderService, private countryService: CountryService) { }
 
   ngOnInit(): void {
+    this.athleteDataprovider.refreshAthleteList();
   }
 
   addTestData() {
     let testAthlete1: Athlete = <Athlete>{
-      dateOfBirth: `${this.getRandomBetween(1950, 2000)}-${this.getRandomBetween(1, 12)}-${this.getRandomBetween(1, 28)}`,
+      dateOfBirth: `${this.getRandomBetween(1950, 2000)}-01-01`,
       gender: Gender.Male,
       height: this.getRandomBetween(150, 220),
       name: `${uniqueNamesGenerator(this.config)} ${uniqueNamesGenerator(this.config)}`,
@@ -35,8 +36,9 @@ export class AthleteListComponent implements OnInit {
 
 
   getRandomCountryCode() {
-    let randomIndex = this.getRandomBetween(0, this.CountryCodes.length - 1);
-    return this.CountryCodes[randomIndex]
+    let countryList = this.countryService.getCountryList();
+    let randomIndex = this.getRandomBetween(0, countryList.length - 1);
+    return countryList[randomIndex].id
   }
 
   getRandomBetween(min, max) {

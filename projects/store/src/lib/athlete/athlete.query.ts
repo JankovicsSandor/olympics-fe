@@ -9,8 +9,12 @@ export class AthleteQuery extends QueryEntity<AthleteState> {
     super(store);
   }
 
-  getAllAthlete() {
+  getAllAthlete$() {
     return this.selectAll();
+  }
+
+  getAllAthlete() {
+    return this.getAll();
   }
 
 }

@@ -1,0 +1,19 @@
+<ng-container *ngIf="editEnabled else disabledView">
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="inputValueControl"
+      [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">
+        <img [src]="'https://www.countryflags.io/'+option.id+'/flat/16.png'">
+        {{option.text}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</ng-container>
+<ng-template #disabledView>
+  <div class="input-content-height d-table-cell">
+    <img [src]="'https://www.countryflags.io/'+inputValueControl.value+'/flat/32.png'" class="me-2">
+    <span>{{inputValueControl.value}}</span>
+  </div>
+
+</ng-template>

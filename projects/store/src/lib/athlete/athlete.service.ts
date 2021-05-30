@@ -18,4 +18,8 @@ export class AthleteService {
   refreshAthleteList(athleteList: Athlete[]) {
     this.store.upsertMany(athleteList);
   }
+
+  deleteAthlete(idList: number[]) {
+    this.store.remove(idList);
+  }
 }

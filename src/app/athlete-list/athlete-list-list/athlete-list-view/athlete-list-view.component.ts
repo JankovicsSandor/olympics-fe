@@ -1,3 +1,4 @@
+import { CountryService } from './../../../services/country.service';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { AthleteGroup } from '@models';
 
@@ -11,9 +12,13 @@ export class AthleteListViewComponent implements OnInit {
 
   @Input() athleteGroupList: AthleteGroup[] = []
 
-  constructor() { }
+  constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
+  }
+
+  getAthleteNationName(nationCode: string) {
+    return this.countryService.getCountryNameFromCode(nationCode);
   }
 
 }

@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class AthleteListFilterService {
 
   constructor(private athleteStoreQuery: AthleteQuery) {
-    combineLatest([this.athleteStoreQuery.getAllAthlete(), this.athleteFilter]).pipe(map(([allAthleteList, filterObject]) => {
+    combineLatest([this.athleteStoreQuery.getAllAthlete$(), this.athleteFilter]).pipe(map(([allAthleteList, filterObject]) => {
       let resultList: AthleteGroup[] = [];
 
       if (filterObject == null) {

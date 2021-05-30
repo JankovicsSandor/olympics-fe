@@ -1,14 +1,18 @@
-<div class="row container-fluid">
-  <div class="col-2">
-    <mat-card>
-      <athlete-list-filter></athlete-list-filter>
-    </mat-card>
-  </div>
-  <div class="col-10">
+<div class="container-fluid">
+  <div class="text-end">
     <button mat-raised-button (click)="addTestData()" class="mb-4">Add test data</button>
-    <mat-card>
-      <athlete-list-list></athlete-list-list>
-    </mat-card>
   </div>
+  <div class="row ">
+    <div class="col-2">
+      <mat-card>
+        <athlete-list-filter></athlete-list-filter>
+      </mat-card>
+    </div>
+    <div class="col-10">
+      <mat-card>
+        <athlete-list-list></athlete-list-list>
+      </mat-card>
+    </div>
 
+  </div>
 </div>

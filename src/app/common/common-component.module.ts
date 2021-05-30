@@ -8,9 +8,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DropdownEditFieldComponent } from './dropdown-edit-field/dropdown-edit-field.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AutocompleteEditFieldComponent } from './autocomplete-edit-field/autocomplete-edit-field.component';
 
 @NgModule({
-  declarations: [InputEditableFieldComponent, DatePickerEditableComponent, DropdownEditFieldComponent],
+  declarations: [InputEditableFieldComponent, DatePickerEditableComponent, DropdownEditFieldComponent, AutocompleteEditFieldComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,8 +20,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatDatepickerModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatAutocompleteModule
   ],
-  exports: [InputEditableFieldComponent, DatePickerEditableComponent, DropdownEditFieldComponent]
+  exports: [InputEditableFieldComponent, DatePickerEditableComponent, DropdownEditFieldComponent, AutocompleteEditFieldComponent]
 })
 export class CommonComponentModule { }

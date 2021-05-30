@@ -19,7 +19,7 @@
             <mat-icon>expand_more</mat-icon>
           </button>
           <img [src]="'https://www.countryflags.io/'+athletNation.nationality+'/flat/64.png'" class="smallFlag">
-          <span class="p-text-bold">{{athletNation.nationality}}</span>
+          <span class="p-text-bold">{{getAthleteNationName(athletNation.nationality)}}</span>
         </div>
       </td>
     </tr>
@@ -27,7 +27,7 @@
   <ng-template pTemplate="rowexpansion" let-nation>
     <tr *ngFor="let athlete of nation.athletes">
       <td class="text-center">
-        {{athlete.name}}
+        <a [href]="'athlete/'+athlete.id">{{athlete.name}}</a>
       </td>
       <td class="text-center">
         {{athlete.dateOfBirth|date:'YYYY.MM.dd'}}

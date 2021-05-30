@@ -15,7 +15,7 @@ export class BaseHttpClientService {
     return <Observable<T>>this.http.get(
       this.apiUrl + path
     ).pipe(catchError(error => {
-      console.log("Status: " + error.status, "Error message: " + error.error.reason);
+      console.log("Status: " + error.status, "Error message: " + error);
       return throwError(error);
     }));
   }
@@ -25,7 +25,7 @@ export class BaseHttpClientService {
       this.apiUrl + path,
       item
     ).pipe(catchError(error => {
-      console.log("Status: " + error.status, "Error message: " + error.error.reason);
+      console.log("Status: " + error.status, "Error message: " + error);
       return throwError(error);
     }));
   }
@@ -35,7 +35,7 @@ export class BaseHttpClientService {
       this.apiUrl + path,
       item,
     ).pipe(catchError(error => {
-      console.log("Status: " + error.status, "Error message: " + error.error.reason);
+      console.log("Status: " + error.status, "Error message: " + error);
       return throwError(error);
     }));
   }
@@ -44,7 +44,7 @@ export class BaseHttpClientService {
     return <Observable<T>>this.http.delete(
       this.apiUrl + path
     ).pipe(catchError(error => {
-      console.log("Status: " + error.status, "Error message: " + error.error.reason);
+      console.log("Status: " + error.status, "Error message: " + error);
       return throwError(error);
     }));
   }

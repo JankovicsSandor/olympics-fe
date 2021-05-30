@@ -14,9 +14,9 @@ export class AthleteListFilterViewComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.filterForm = this.fb.group({
-      minBirthDate: [new Date()],
-      minWeight: [0],
-      minHeight: [0]
+      minBirthDate: [],
+      minWeight: [],
+      minHeight: []
     })
   }
 
