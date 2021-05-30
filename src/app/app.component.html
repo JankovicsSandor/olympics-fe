@@ -1,4 +1,8 @@
-<mat-toolbar color="primary" class="mb-3">
-  <span>Olimpic athletes</span>
+<mat-toolbar color="primary">
+  <span><a class="text-decoration-none text-white" href="athlete/list">Olimpic athletes</a></span>
 </mat-toolbar>
+<div class="mb-3" style="height:10px">
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading|async"></mat-progress-bar>
+</div>
+
 <router-outlet></router-outlet>

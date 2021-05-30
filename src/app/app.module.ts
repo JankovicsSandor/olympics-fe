@@ -8,6 +8,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { StoreModule } from '@store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
+import { LoadingService } from './services/loading.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent
@@ -19,9 +23,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatToolbarModule,
     StoreModule,
     BrowserAnimationsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatProgressBarModule
   ],
-  providers: [],
+  providers: [LoadingService, { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
