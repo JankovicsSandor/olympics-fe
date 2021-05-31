@@ -9,33 +9,36 @@ export class AthleteListFilterService {
 
   constructor(private athleteStoreQuery: AthleteQuery) {
     combineLatest([this.athleteStoreQuery.getAllAthlete$(), this.athleteFilter]).pipe(map(([allAthleteList, filterObject]) => {
-      let resultList: AthleteGroup[] = [];
+      return this.groupAthleteResultBasedOnNation(allAthleteList, filterObject)
+    })).subscribe(this.filteredAtheteList);
+  }
+  groupAthleteResultBasedOnNation(allAthleteList: Athlete[], filterObject: AthleteFilter): AthleteGroup[] {
+    let resultList: AthleteGroup[] = [];
 
-      if (filterObject == null) {
-        for (const oneAthlete of allAthleteList) {
-          this.AddAthleteToResultList(resultList, oneAthlete);
+    if (filterObject == null) {
+      for (const oneAthlete of allAthleteList) {
+        this.AddAthleteToResultList(resultList, oneAthlete);
+      }
+    } else {
+      for (const oneAthlete of allAthleteList) {
+        if (filterObject.minDateOfBirth) {
+          if (new Date(oneAthlete.dateOfBirth).getTime() >= filterObject.minDateOfBirth.getTime()) {
+            this.AddAthleteToResultList(resultList, oneAthlete);
+          }
         }
-      } else {
-        for (const oneAthlete of allAthleteList) {
-          if (filterObject.minDateOfBirth) {
-            if (new Date(oneAthlete.dateOfBirth).getTime() >= filterObject.minDateOfBirth.getTime()) {
-              this.AddAthleteToResultList(resultList, oneAthlete);
-            }
+        if (filterObject.minHeight) {
+          if (oneAthlete.height >= filterObject.minHeight) {
+            this.AddAthleteToResultList(resultList, oneAthlete);
           }
-          if (filterObject.minHeight) {
-            if (oneAthlete.height >= filterObject.minHeight) {
-              this.AddAthleteToResultList(resultList, oneAthlete);
-            }
-          }
-          if (filterObject.minWeight) {
-            if (oneAthlete.weight >= filterObject.minWeight) {
-              this.AddAthleteToResultList(resultList, oneAthlete);
-            }
+        }
+        if (filterObject.minWeight) {
+          if (oneAthlete.weight >= filterObject.minWeight) {
+            this.AddAthleteToResultList(resultList, oneAthlete);
           }
         }
       }
-      return resultList;
-    })).subscribe(this.filteredAtheteList);
+    }
+    return resultList;
   }
 
   private filteredAtheteList: ReplaySubject<AthleteGroup[]> = new ReplaySubject(1);
